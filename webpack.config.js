@@ -109,6 +109,11 @@ module.exports = {
   devServer: {
     port: 3001,
     open: true,
+    onAfterSetupMiddleware: function (devServer) {
+      devServer.app.post('*', (req, res) => {
+        res.redirect(req.originalUrl)
+      })
+    },
   },
   optimization: optimization(),
   module: {
