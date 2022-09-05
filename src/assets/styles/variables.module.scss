@@ -1,0 +1,124 @@
+@use 'sass:math';
+
+/* Font */
+$font-size-base: 16px;
+$font-family-base: Montserrat, Arial, sans-serif;
+
+/* Line height */
+$line-height-base: 1.5rem;
+
+/* Colors */
+
+// Green
+$color-green: #3dd286;
+$color-green-ghost: rgba(61, 210, 134, 0.15);
+$color-green-light: #eafee2;
+// Orange
+$color-orange: #f0a637;
+$color-orange-ghost: rgba(240, 166, 55, 0.18);
+// Red
+$color-red: #f43c3c;
+$color-red-ghost: rgba(244, 60, 60, 0.2);
+// Purple
+$color-purple-300: #a248fb;
+$color-purple-300-ghost: rgba(162, 72, 251, 0.1);
+$color-purple-600: #9a80b1;
+$color-purple-900: #f8f0ff;
+// Blue
+$color-blue-100: #003ad2;
+$color-blue-200: #1c58f6;
+$color-blue-200-ghost: rgba(28, 88, 246, 0.5);
+$color-blue-300: #3c8aff;
+$color-blue-300-ghost: rgba(60, 138, 255, 0.12);
+$color-blue-400: #4e73f8;
+$color-blue-400-ghost: rgba(78, 115, 248, 0.2);
+$color-blue-450: #6989fe;
+$color-blue-500: #768fb4;
+$color-blue-600: #8fa0b9;
+$color-blue-700: #c5d6ef;
+$color-blue-800: #cfdcf6;
+$color-blue-900: #dae5fc;
+// Grey
+$color-black: #202525;
+$color-grey-0: #7a7e84;
+$color-grey-100: #898e94;
+$color-grey-200: #999ea6;
+$color-grey-300: #acb1b9;
+$color-grey-400: #bcc2cb;
+$color-grey-500: #c8ced8;
+$color-grey-600: #d4dae5;
+$color-grey-700: #e0e6f2;
+$color-grey-800: #ecf2ff;
+$color-grey-900: #f6f7fb;
+$color-white: #ffffff;
+// Extra
+$color-extra-1: #202968;
+$color-extra-2: #6f7d92;
+
+$color-text-primary: $color-extra-1;
+$color-background: $color-grey-900;
+
+$color-primary: $color-blue-100;
+$color-primary-hover: $color-blue-200;
+$color-primary-focus: $color-blue-200;
+
+$color-ghost: $color-grey-700;
+$color-ghost-hover: $color-blue-800;
+$color-ghost-focus: $color-blue-900;
+$color-ghost-text: $color-text-primary;
+$color-ghost-text-hover: $color-grey-0;
+$color-ghost-text-focus: $color-grey-200;
+
+$color-disabled: $color-grey-700;
+
+$color-success: $color-green;
+$color-warning: $color-orange;
+$color-error: $color-red;
+
+$color-map: (
+  primary: $color-primary,
+  success: $color-success,
+  warning: $color-warning,
+  error: $color-error,
+);
+
+/* z-index */
+
+$z-index-invisible: -1;
+$z-index-low: 10;
+$z-index-middle: 50;
+$z-index-max: 100;
+
+/* Others */
+
+$border-radius-base: 4px;
+
+$transition-function: ease-out;
+$transition-duration: 0.3s;
+$transition: $transition-duration $transition-function;
+
+$shadow: 30px 60px 120px 0 #e6e8ed;
+
+$opacity-disabled: 50%;
+
+$header-height: 80px;
+
+// Из макета
+//$color-grey-0: #e0e9fd3b;
+//$color-grey-100: #bfd4ff66;
+//$color-grey-200: #757ba4;
+////$color-grey-300: #fff;
+////$color-grey-400: #fff;
+//$color-grey-500: #9daed2;
+//$color-grey-600: #c5d6ef;
+//$color-grey-700: #d7dadf;
+//$color-grey-800: #dae5fc;
+//$color-grey-900: #f6f7fb;
+
+:export {
+  colorPrimary: $color-primary;
+  colorBackground: $color-background;
+  colorGreenGhost: $color-green-ghost;
+  colorOrangeGhost: $color-orange-ghost;
+  colorRedGhost: $color-red-ghost;
+}

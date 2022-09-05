@@ -1,0 +1,92 @@
+@import 'variables.module';
+
+@mixin scroll-vertical() {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color-grey-600;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-grey-200;
+    border: solid 2px $color-grey-600;
+    border-radius: 4px;
+  }
+}
+
+@mixin loader-animation($loader-size: 30px, $loader-width: 3px, $loader-color: $color-white) {
+  & {
+    display: inline-block;
+    width: $loader-size;
+    height: $loader-size;
+
+    &::after {
+      content: ' ';
+      display: block;
+      width: $loader-size - $loader-width * 2;
+      height: $loader-size - $loader-width * 2;
+      //margin: $loader-width + 2px;
+      border-radius: 50%;
+      border-width: $loader-width;
+      border-style: solid;
+      border-color: $loader-color transparent $loader-color transparent;
+      animation: lds-dual-ring 1s linear infinite;
+    }
+  }
+
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@mixin set-user-select-none() {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+@mixin set-placeholder-color($color: $color-grey-500) {
+  color: $color;
+}
+
+@mixin set-placeholder-styles($color: $color-grey-500) {
+  &::-webkit-input-placeholder {
+    @include set-placeholder-color($color);
+    @include set-user-select-none();
+  }
+  &::-moz-placeholder {
+    @include set-placeholder-color($color);
+    @include set-user-select-none();
+  } /* Firefox 19+ */
+  &:-moz-placeholder {
+    @include set-placeholder-color($color);
+    @include set-user-select-none();
+  } /* Firefox 18- */
+  &:-ms-input-placeholder {
+    @include set-placeholder-color($color);
+    @include set-user-select-none();
+  }
+}
+
+@mixin hideArrowsInputTypeNumber() {
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
