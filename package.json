@@ -1,7 +1,7 @@
 {
-  "name": "webpack",
+  "name": "webpack-react-b24",
   "version": "1.0.0",
-  "description": "",
+  "description": "webpack-react-b24",
   "main": "index.js",
   "scripts": {
     "start": "cross-env SERVE=true webpack serve",
@@ -10,18 +10,16 @@
     "build-dev": "webpack",
     "lint": "eslint --ext .ts,.tsx src --fix"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "webpack",
+    "react"
+  ],
+  "author": "Appazov<anvar978@yandex.ru",
   "license": "ISC",
-  "prettier": {
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "semi": false,
-    "singleQuote": true,
-    "printWidth": 100,
-    "jsxSingleQuote": true,
-    "arrowParens": "always",
-    "endOfLine": "auto"
+  "dependencies": {
+    "axios": "^0.27.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
@@ -50,12 +48,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-webpack-plugin": "^3.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "loader-utils": "^3.2.0",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "^7.7.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-refresh": "^0.14.0",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2",
@@ -65,10 +62,5 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3",
     "xml-loader": "^1.2.1"
-  },
-  "peerDependencies": {
-    "classnames": "*",
-    "react": "*",
-    "react-dom": "*"
   }
 }

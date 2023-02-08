@@ -7,6 +7,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const { getCSSModuleLocalIdent } = require('./config')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
@@ -44,7 +45,7 @@ const cssLoaders = (modules, extra) => {
       loader: 'css-loader',
       options: modules
         ? {
-            modules: { localIdentName: '[local]__[sha1:hash:hex:7]' },
+            modules: { mode: 'local', getLocalIdent: getCSSModuleLocalIdent },
             importLoaders: extra ? 2 : 1,
           }
         : {},
@@ -101,14 +102,18 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.scss'],
     alias: {
-      components: path.resolve(__dirname, 'src/components'),
+      modules: path.resolve(__dirname, 'src/modules'),
       assets: path.resolve(__dirname, 'src/assets'),
+      config: path.resolve(__dirname, 'src/config'),
+      shared: path.resolve(__dirname, 'src/shared'),
+      ui: path.resolve(__dirname, 'src/ui'),
+      utils: path.resolve(__dirname, 'src/utils'),
     },
   },
   devtool: isDev ? 'source-map' : false,
   devServer: {
     port: 3001,
-    open: true,
+    open: false,
     onAfterSetupMiddleware: function (devServer) {
       devServer.app.post('*', (req, res) => {
         res.redirect(req.originalUrl)
