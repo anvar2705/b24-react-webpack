@@ -1,0 +1,80 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "ignorePatterns": ["*.js","*.jsx"],
+  "plugins": [],
+  "rules": {
+    "react/prop-types": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
+    "import/prefer-default-export": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", ["parent", "sibling"], "type"],
+        "pathGroups": [
+          { "pattern": "react*", "group": "external", "position": "before" },
+          { "pattern": "./**/*.scss", "group": "type", "position": "before" }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": { "delimiter": "comma", "requireLast": true },
+        "singleline": { "delimiter": "comma", "requireLast": false },
+        "multilineDetection": "brackets"
+      }
+    ],
+    // Appazov
+    "linebreak-style": "off", // не имеет значения, если в гите настройка git config --global core.autocrlf input
+    "react/react-in-jsx-scope": "off", // с 17 версии не надо импортить React
+    "react/jsx-props-no-spreading": "off", // запрет спреда пропсов
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ],
+        "moduleDirectory": [
+          "node_modules",
+          "src"
+        ]
+      }
+    }
+  }
+}

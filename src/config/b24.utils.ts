@@ -1,16 +1,22 @@
-const getQueryArray = (obj: any, path: any[] = [], result = []) =>
-  Object.entries(obj).reduce((acc: any, [k, v]) => {
-    path.push(k)
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const getQueryArray = (
+  obj: any,
+  path: any[] = [],
+  result = [],
+) => Object
+  .entries(obj)
+  .reduce((acc: any, [k, v]) => {
+    path.push(k);
 
     if (v instanceof Object) {
-      getQueryArray(v, path, acc)
+      getQueryArray(v, path, acc);
     } else {
-      acc.push(`${path.map((n, i) => (i ? `[${n}]` : n)).join('')}=${v}`)
+      acc.push(`${path.map((n, i) => (i ? `[${n}]` : n)).join('')}=${v}`);
     }
 
-    path.pop()
+    path.pop();
 
-    return acc
-  }, result)
+    return acc;
+  }, result);
 
-export const getQueryString = (obj: any) => getQueryArray(obj).join('&')
+export const getQueryString = (obj: any) => getQueryArray(obj).join('&');
